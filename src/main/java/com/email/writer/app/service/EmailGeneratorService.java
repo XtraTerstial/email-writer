@@ -1,5 +1,6 @@
-package com.email.writer.app;
+package com.email.writer.app.service;
 
+import com.email.writer.app.dto.EmailRequest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -81,7 +82,7 @@ public class EmailGeneratorService {
         if(emailRequest.getTone() != null && !emailRequest.getTone().isEmpty()){
             prompt.append("Use").append(emailRequest.getTone()).append("tone");
         }
-        prompt.append("\nOrigninal Email : \n").append(emailRequest.getEmailContent());
+        prompt.append("\nOriginal Email : \n").append(emailRequest.getEmailContent());
         return prompt.toString();
     }
 
